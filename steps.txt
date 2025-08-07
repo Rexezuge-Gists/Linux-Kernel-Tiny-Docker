@@ -8,8 +8,6 @@ bzImage                                                                         
 user@cloudshell:~/linux-6.12$ scp -i ~/id_ed25519 -r ~/linux-6.12.41/_rootfs/lib/modules/6.12.41/ root@47.237.98.192:/lib/modules/6.12-custom
 modules.builtin.modinfo                                                                                                                          100%   78KB 116.5KB/s   00:00    
 modules.builtin                                                                                                                                  100% 8991    39.2KB/s   00:00    
-user@cloudshell:~/linux-6.12$ scp -i ~/id_ed25519 System.map root@47.237.98.192:/boot/System.map-custom
-System.map                                                                                                                                       100% 1986KB 983.2KB/s   00:02    
 user@cloudshell:~/linux-6.12$ scp -i ~/id_ed25519 .config root@47.237.98.192:/boot/config-6.12-custom
 .config                                                                                                                                          100%   97KB 108.6KB/s   00:00    
 user@cloudshell:~/linux-6.12$ ssh root@47.237.98.192 -i ~/id_ed25519
@@ -18,10 +16,8 @@ Linux iZt4ngbhil5jgmy69hj04dZ 6.1.0-37-amd64 #1 SMP PREEMPT_DYNAMIC Debian 6.1.1
 Welcome to Alibaba Cloud Elastic Compute Service !
 
 Last login: Thu Aug  7 03:08:55 2025 from 34.74.245.110
-root@iZt4ngbhil5jgmy69hj04dZ:~# mv /lib/modules/6.12-custom/6.12.41/ /lib/modules/
-root@iZt4ngbhil5jgmy69hj04dZ:~# rm -rf /lib/modules/6.12-custom
-root@iZt4ngbhil5jgmy69hj04dZ:~# mv /lib/modules/6.12.41/ /lib/modules/6.12-custom
-root@iZt4ngbhil5jgmy69hj04dZ:/lib/modules# update-initramfs -c -k 6.12-custom
+root@iZt4ngbhil5jgmy69hj04dZ:~# mv /lib/modules/6.12-custom/6.12.41/ /lib/modules/ && rm -rf /lib/modules/6.12-custom && mv /lib/modules/6.12.41/ /lib/modules/6.12-custom
+root@iZt4ngbhil5jgmy69hj04dZ:~# update-initramfs -c -k 6.12-custom
 update-initramfs: Generating /boot/initrd.img-6.12-custom
 depmod: WARNING: could not open modules.order at /lib/modules/6.12-custom: No such file or directory
 W: Possible missing firmware /lib/firmware/tigon/tg3_tso5.bin for built-in driver tg3
@@ -54,7 +50,7 @@ W: Possible missing firmware /lib/firmware/rtl_nic/rtl8168e-1.fw for built-in dr
 W: Possible missing firmware /lib/firmware/rtl_nic/rtl8168d-2.fw for built-in driver r8169
 W: Possible missing firmware /lib/firmware/rtl_nic/rtl8168d-1.fw for built-in driver r8169
 depmod: WARNING: could not open modules.order at /var/tmp/mkinitramfs_3Lu1a2/lib/modules/6.12-custom: No such file or directory
-root@iZt4ngbhil5jgmy69hj04dZ:/lib/modules# update-grub
+root@iZt4ngbhil5jgmy69hj04dZ:~# update-grub
 Generating grub configuration file ...
 dpkg: warning: version 'custom' has bad syntax: version number does not start with digit
 Found linux image: /boot/vmlinuz-custom
