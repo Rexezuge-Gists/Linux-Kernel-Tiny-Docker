@@ -18,6 +18,9 @@ Linux iZt4ngbhil5jgmy69hj04dZ 6.1.0-37-amd64 #1 SMP PREEMPT_DYNAMIC Debian 6.1.1
 Welcome to Alibaba Cloud Elastic Compute Service !
 
 Last login: Thu Aug  7 03:08:55 2025 from 34.74.245.110
+root@iZt4ngbhil5jgmy69hj04dZ:~# mv /lib/modules/6.12-custom/6.12.41/ /lib/modules/
+root@iZt4ngbhil5jgmy69hj04dZ:~# rm -rf /lib/modules/6.12-custom
+root@iZt4ngbhil5jgmy69hj04dZ:~# mv /lib/modules/6.12.41/ /lib/modules/6.12-custom
 root@iZt4ngbhil5jgmy69hj04dZ:/lib/modules# update-initramfs -c -k 6.12-custom
 update-initramfs: Generating /boot/initrd.img-6.12-custom
 depmod: WARNING: could not open modules.order at /lib/modules/6.12-custom: No such file or directory
