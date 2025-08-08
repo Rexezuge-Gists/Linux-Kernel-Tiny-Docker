@@ -13,20 +13,21 @@ Download latest lts version from [kernel.org](https://www.kernel.org/).
 > longterm: 6.12.41	2025-08-01  [[tarball](https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-6.12.41.tar.xz)]
 
 ```bash
-wget -O linux.tar.xz https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-6.12.41.tar.xz
-tar -xf linux.tar.xz
+export LINUX_KERNEL_VERSION=6.12.41
+wget https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-$LINUX_KERNEL_VERSION.tar.xz
+tar -xf linux-$LINUX_KERNEL_VERSION.tar.xz
 ```
 
 #### Configure the Options
 
 ```bash
-cp ./config.txt linux/
+cat ./config.txt > linux-$LINUX_KERNEL_VERSION/.config
 ```
 
 #### Build Kernel
 
 ```bash
-cd linux/
+cd linux-$LINUX_KERNEL_VERSION/
 make -j$(nproc)
 ```
 
