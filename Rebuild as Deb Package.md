@@ -12,6 +12,9 @@ echo "12" | sudo tee debian/compat
 #### Initalize Git Repo (Required)
 
 ```bash
+git config --global user.email "you@example.com"
+git config --global user.name "Your Name"
+
 git init
 git add .
 git commit -m "Initial commit"
